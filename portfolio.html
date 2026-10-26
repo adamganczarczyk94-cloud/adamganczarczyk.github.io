@@ -1,0 +1,198 @@
+<!DOCTYPE html> <!-- Declares this document as modern HTML5. -->
+<html lang="en"> <!-- Sets English as the document language for browsers and assistive technology. -->
+<head>
+  <meta charset="utf-8"> <!-- Allows the page to display the full range of text characters. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes the layout match the device width on phones and tablets. -->
+  <title>Adam Ganczarczyk &ndash; Portfolio</title> <!-- Sets the title shown in the browser tab. -->
+  <link rel="stylesheet" href="portfolio.css"> <!-- Loads the one stylesheet shared by both pages. -->
+  <script src="portfolio.js" defer></script> <!-- Loads the one shared script after the HTML has been parsed. -->
+</head> <!-- Ends the page metadata. -->
+
+<body> <!-- Starts the visible homepage content. -->
+<!-- Animated background -->
+	<ul class="background" aria-hidden="true">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+	
+	<!-- The header contains the portfolio brand and in-page navigation. -->
+<header class="site-header">
+	<nav class="nav container" aria-label="Main navigation">
+		<a class="logo" href="#top">ADAM<span>.</span>
+		</a>
+		<div class="nav-links">
+			<a href="#work">Work</a>
+			<a href="#about">About</a>
+			<a href="#contact">Contact</a>
+		</div>
+	</nav>
+</header>
+
+<!-- Gives the main content a top anchor for the brand link. -->
+<main id="top"> 
+<!-- The hero introduces the portfolio owner and offers quick navigation actions. -->
+<section class="hero">
+	<div class="container hero-grid">
+		<div>
+			<div class="eyebrow">Portfolio · 2026</div>
+			<h1>Building digital things that <span>work.</span>
+			</h1>
+			<p>I'm Adam, an aspiring web developer focused on clean websites, useful interfaces, and practical technology. This portfolio is a lightweight example built entirely with HTML, CSS and JavaScript.</p>
+			<div class="actions">
+				<a class="btn primary" href="#work">View my work</a>
+				<a class="btn" href="#contact">Get in touch</a>
+			</div>
+		</div>
+		<aside class="hero-card">
+			<div class="avatar">
+				<img src="Profile_Picture.jpeg" alt="Profile Picture">
+		</div>
+				<div class="eyebrow">Currently
+		</div>
+				<h2>Learning, building and experimenting.</h2>
+				<p>Interested in web development, Linux, self-hosting, technology and creating simple tools that solve real problems.</p>
+				<div class="stats">
+					<div class="stat">
+						<strong>03</strong>
+						<span>Featured projects</span>
+					</div>
+					<div class="stat">
+						<strong>03</strong>
+						<span>Core technologies</span>
+					</div>
+					<div class="stat">
+						<strong>∞</strong>
+						<span>Ideas to build</span>
+					</div>
+				</div>
+			</aside>
+		</div>
+	</section>
+	
+<!-- The work section presents featured projects, including the link to finance.html. -->
+<section class="section" id="work">
+	<div class="container">
+		<div class="section-heading">
+			<div>
+				<div class="eyebrow">Selected work</div>
+				<h2>Projects</h2>
+			</div>
+			<p>Three example projects: a personal finance dashboard, a data analytics dashboard an a portfolio website.</p>
+		</div>
+		<div class="projects">
+			<a class="project project-link" href="finance.html" aria-label="Open the Personal Finance Dashboard">
+				<div>
+					<div class="project-number">01 / WEBSITE</div>
+					<h3>Personal Finance Dashboard</h3>
+					<p>A dashboard that tracks income, expenses, savings and net worth.</p>
+				</div>
+				<div class="tags">
+					<span class="tag">HTML</span>
+					<span class="tag">CSS</span>
+					<span class="tag">JavaScript</span>
+				</div>
+			</a>
+			<article class="project project-link">
+					<div class="project-content">
+						<div>
+							<div class="project-number">02 / WEBSITE</div>
+							<h3>Personal Data Analytics Dashboard</h3>
+							<p>A dashboard that takes a dataset and turns it into useful visual insights.</p>
+						</div>
+						<div class="tags">
+							<span class="tag">HTML</span>
+							<span class="tag">CSS</span>
+							<span class="tag">JavaScript</span>
+						</div>
+					</div>
+				<span class="coming-soon" aria-hidden="true">Coming Soon!</span>
+			</article>
+			<article class="project">
+				<div>
+					<div class="project-number">03 / WEBSITE</div>
+					<h3>Portfolio Website</h3>
+					<p>This website showcasing my work!</p>
+				</div>
+				<div class="tags">
+					<span class="tag">HTML</span>
+					<span class="tag">CSS</span>
+					<span class="tag">JavaScript</span>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+<!-- The about section explains the site's approach and summarises relevant skills. -->
+<section class="section" id="about">
+	<div class="container">
+		<div class="section-heading">
+			<div>
+				<div class="eyebrow">About</div>
+				<h2>Simple by design.</h2>
+			</div>
+		</div>
+		<div class="about-grid">
+			<div class="about-copy">
+				<p>Good portfolio websites do not need a complicated technology stack. The goal here is to establish a clear visual hierarchy, make the content easy to scan, and use JavaScript only where it adds value.</p>
+				<p>The page is intentionally static: there is no database, framework, build system or server-side code. That makes it inexpensive to host and easy to understand while learning.</p>
+			</div>
+			<div class="skills">
+				<div class="skill">
+					<strong>HTML</strong>
+					<span>Semantic page structure and accessible content.</span>
+				</div>
+				<div class="skill">
+					<strong>CSS</strong>
+					<span>Responsive layouts, typography and visual design.</span>
+				</div>
+				<div class="skill">
+					<strong>JavaScript</strong>
+					<span>Small interactions without unnecessary complexity.</span>
+				</div>
+				<div class="skill">
+					<strong>Git</strong>
+					<span>Version control for tracking changes and experiments.</span>
+				</div>
+				<div class="skill">
+					<strong>Linux</strong>
+					<span>Comfort with command-line tools and self-hosting.</span>
+				</div>
+				<div class="skill">
+					<strong>Problem solving</strong>
+					<span>Breaking larger technical problems into manageable steps.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- The contact panel provides an email action handled by the shared JavaScript. -->
+<section class="section">
+	<div class="container">
+		<div class="contact" id="contact">
+			<div class="eyebrow">Contact</div>
+			<h2>Feel free to say hello.</h2>
+			<p>Use the button below to start an email.</p>
+			<button class="btn primary" id="emailButton" type="button">Email me</button>
+		</div>
+	</div>
+</section>
+</main>
+<!-- Gives visitors a quick way to return to the top after scrolling. -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
+<!-- The footer includes a year filled in by the shared JavaScript. -->
+<footer>
+	<div class="container">© <span id="year"></span> Adam Ganczarczyk · Built with HTML, CSS &amp; JavaScript.</div>
+</footer>
+</body>
+<!-- Ends the visible homepage content. -->
+</html>
+<!-- Ends the HTML document. -->

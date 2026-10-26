@@ -1,0 +1,191 @@
+<!-- Declares this document as modern HTML5. -->
+<!DOCTYPE html>
+<!-- Sets English as the document language for browsers and assistive technology. -->
+<html lang="en">
+<!-- Starts metadata that configures the page but is not shown as page content. -->
+<head>
+	<meta charset="utf-8"> <!-- Allows the page to display the full range of text characters. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes the layout match the device width on phones and tablets. -->
+	<meta name="theme-color" content="#0b1020"> <!-- Sets the browser toolbar colour on supported mobile browsers. -->
+	<title>Personal Finance Dashboard</title> <!-- Sets the title shown in the browser tab. -->
+	<link rel="stylesheet" href="portfolio.css"> <!-- Reuses the portfolio stylesheet so both pages share one CSS file. -->
+	<script src="portfolio.js" defer></script> <!-- Reuses the portfolio scripts so both pages share two JavaScript files. -->
+	<script src="finance.js" defer></script>  
+</head> <!-- Ends the page metadata. -->
+<body class="finance-page"> <!-- Starts the visible dashboard page and applies its shared stylesheet layout. -->
+  <!-- The header provides the dashboard identity and the primary navigation. -->
+  <header class="site-header"> <!-- Creates the page header. -->
+    <nav class="nav container" aria-label="Main navigation"> <!-- Groups the brand and navigation links accessibly. -->
+      <a class="logo" href="portfolio.html" aria-label="Return to Adam's portfolio homepage">MONEY<span>.</span></a> <!-- Returns the visitor to the portfolio homepage. -->
+      <div class="nav-links"> <!-- Groups the dashboard section links. -->
+        <a href="#overview">Overview</a> <!-- Jumps to the financial summary. -->
+        <a href="#cash-flow">Cash flow</a> <!-- Jumps to the income and expense charts. -->
+        <a href="#activity">Activity</a> <!-- Jumps to the recent transactions table. -->
+      </div> <!-- Ends the navigation link group. -->
+      <a class="home-link" href="portfolio.html">← Portfolio home</a> <!-- Provides an obvious route back to the portfolio homepage. -->
+    </nav> <!-- Ends the navigation region. -->
+  </header> <!-- Ends the page header. -->
+
+  <!-- The main region contains all dashboard information. -->
+  <main id="overview" class="container"> <!-- Gives the dashboard an anchor and centres its content. -->
+    <section class="welcome-row" aria-labelledby="page-title"> <!-- Introduces the dashboard and its reporting period. -->
+      <div> <!-- Groups the greeting and main page heading. -->
+        <p class="eyebrow">Your money, in focus</p> <!-- Adds a compact introductory label. -->
+        <h1 id="page-title">Financial overview</h1> <!-- Names the primary page content. -->
+        <p class="welcome-copy">A clear view of what came in, what went out, and what you’re building.</p> <!-- Explains what the dashboard summarizes. -->
+      </div> <!-- Ends the greeting group. -->
+      <label class="period-picker"> <!-- Associates a readable label with the reporting-period control. -->
+        <span>Reporting period</span> <!-- Describes the adjacent select menu. -->
+        <select id="periodSelect" aria-label="Choose reporting period"> <!-- Lets the visitor choose a month for the sample dashboard. -->
+          <option value="october">October 2026</option> <!-- Provides the default reporting month. -->
+          <option value="september">September 2026</option> <!-- Provides an earlier period for the interactive example. -->
+          <option value="august">August 2026</option> <!-- Provides another period for the interactive example. -->
+        </select> <!-- Ends the reporting-period options. -->
+      </label> <!-- Ends the reporting-period control. -->
+    </section> <!-- Ends the welcome section. -->
+
+    <!-- Summary cards show the four core personal-finance measurements. -->
+    <section class="metric-grid" aria-label="Key financial metrics"> <!-- Creates a labelled group of top-level financial figures. -->
+      <article class="metric-card income-card"> <!-- Starts the monthly income summary card. -->
+        <div class="metric-top"><span class="metric-icon" aria-hidden="true">↗</span><span class="trend positive">+8.2%</span></div> <!-- Shows a decorative icon and month-to-month income trend. -->
+        <p class="metric-label">Income</p> <!-- Labels the amount shown below. -->
+        <p class="metric-value" data-metric="income">$6,420</p> <!-- Displays the selected period's sample income. -->
+        <p class="metric-note"> <span class="dot green-dot"></span> $486 above last month</p> <!-- Summarizes the income change using text and a colour cue. -->
+      </article> <!-- Ends the income card. -->
+      <article class="metric-card expense-card"> <!-- Starts the monthly expenses summary card. -->
+        <div class="metric-top"><span class="metric-icon" aria-hidden="true">↘</span><span class="trend positive">−3.4%</span></div> <!-- Shows an icon and the reduction in expenses. -->
+        <p class="metric-label">Expenses</p> <!-- Labels the amount shown below. -->
+        <p class="metric-value" data-metric="expenses">$3,184</p> <!-- Displays the selected period's sample expenses. -->
+        <p class="metric-note"><span class="dot blue-dot"></span> $112 below last month</p> <!-- Summarizes expense movement without relying only on colour. -->
+      </article> <!-- Ends the expenses card. -->
+      <article class="metric-card savings-card"> <!-- Starts the monthly savings summary card. -->
+        <div class="metric-top"><span class="metric-icon" aria-hidden="true">◈</span><span class="trend positive">+5.1%</span></div> <!-- Shows a savings symbol and its monthly trend. -->
+        <p class="metric-label">Savings</p> <!-- Labels the amount shown below. -->
+        <p class="metric-value" data-metric="savings">$3,236</p> <!-- Displays income minus expenses for the selected period. -->
+        <p class="metric-note"><span class="dot purple-dot"></span> 50.4% savings rate</p> <!-- Shows the proportion of income saved. -->
+      </article> <!-- Ends the savings card. -->
+      <article class="metric-card networth-card"> <!-- Starts the net-worth summary card. -->
+        <div class="metric-top"><span class="metric-icon" aria-hidden="true">⌁</span><span class="trend positive">+2.7%</span></div> <!-- Shows a net-worth symbol and its monthly trend. -->
+        <p class="metric-label">Net worth</p> <!-- Labels the amount shown below. -->
+        <p class="metric-value" data-metric="networth">$48,295</p> <!-- Displays the selected period's sample net worth. -->
+        <p class="metric-note"><span class="dot gold-dot"></span> $1,270 growth this month</p> <!-- Describes the net-worth increase in plain language. -->
+      </article> <!-- Ends the net-worth card. -->
+    </section> <!-- Ends the key-metrics group. -->
+
+    <!-- Charts compare income and expenses, then show how spending is divided. -->
+    <section id="cash-flow" class="chart-grid" aria-label="Cash flow and spending breakdown"> <!-- Creates a pair of cash-flow visualizations. -->
+      <article class="panel cashflow-panel"> <!-- Starts the monthly cash-flow chart panel. -->
+        <div class="panel-heading"><div><p class="eyebrow">Cash flow</p><h2>Income vs. expenses</h2></div><span class="chart-period">Last 6 months <span aria-hidden="true">⌄</span></span></div> <!-- Gives the chart a title and period label. -->
+        <div class="legend" aria-label="Chart legend"><span><i class="legend-dot income-legend"></i>Income</span><span><i class="legend-dot expense-legend"></i>Expenses</span></div> <!-- Explains which bar colour represents each series. -->
+        <div class="bar-chart" role="img" aria-label="Bar chart comparing monthly income and expenses from May through October"> <!-- Announces the chart purpose to assistive technology. -->
+          <div class="y-labels" aria-hidden="true"><span>$8k</span><span>$6k</span><span>$4k</span><span>$2k</span><span>$0</span></div> <!-- Shows the chart's approximate dollar scale. -->
+          <div class="plot-area"> <!-- Holds gridlines and the month-by-month bar groups. -->
+            <div class="grid-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div> <!-- Draws horizontal guides behind the bars. -->
+            <div class="bar-groups"> <!-- Arranges monthly income and expense bars in columns. -->
+              <div class="bar-group"><div class="bars"><span class="bar income-bar" style="--bar-height:68%" title="May income: $5,450"></span><span class="bar expense-bar" style="--bar-height:43%" title="May expenses: $3,420"></span></div><span class="month-label">May</span></div> <!-- Shows May's income and expenses. -->
+              <div class="bar-group"><div class="bars"><span class="bar income-bar" style="--bar-height:73%" title="June income: $5,840"></span><span class="bar expense-bar" style="--bar-height:40%" title="June expenses: $3,180"></span></div><span class="month-label">Jun</span></div> <!-- Shows June's income and expenses. -->
+              <div class="bar-group"><div class="bars"><span class="bar income-bar" style="--bar-height:78%" title="July income: $6,240"></span><span class="bar expense-bar" style="--bar-height:44%" title="July expenses: $3,520"></span></div><span class="month-label">Jul</span></div> <!-- Shows July's income and expenses. -->
+              <div class="bar-group"><div class="bars"><span class="bar income-bar" style="--bar-height:70%" title="August income: $5,620"></span><span class="bar expense-bar" style="--bar-height:42%" title="August expenses: $3,360"></span></div><span class="month-label">Aug</span></div> <!-- Shows August's income and expenses. -->
+              <div class="bar-group"><div class="bars"><span class="bar income-bar" style="--bar-height:74%" title="September income: $5,934"></span><span class="bar expense-bar" style="--bar-height:41%" title="September expenses: $3,296"></span></div><span class="month-label">Sep</span></div> <!-- Shows September's income and expenses. -->
+              <div class="bar-group current-month"><div class="bars"><span class="bar income-bar" style="--bar-height:80%" title="October income: $6,420"></span><span class="bar expense-bar" style="--bar-height:40%" title="October expenses: $3,184"></span></div><span class="month-label">Oct</span></div> <!-- Highlights October's income and expenses. -->
+            </div> <!-- Ends the monthly bar groups. -->
+          </div> <!-- Ends the plot area. -->
+        </div> <!-- Ends the bar chart. -->
+      </article> <!-- Ends the cash-flow panel. -->
+
+      <article class="panel spending-panel"> <!-- Starts the spending-by-category panel. -->
+        <div class="panel-heading"><div><p class="eyebrow">Spending</p><h2>Where it goes</h2></div></div> <!-- Adds the panel title. -->
+        <div class="spending-summary"><div class="donut" role="img" aria-label="Spending breakdown: housing 38%, food 22%, transport 14%, lifestyle 16%, other 10%"><div class="donut-center"><strong>$3,184</strong><span>Total spent</span></div></div></div> <!-- Shows the overall spend and accessible category proportions. -->
+        <ul class="category-list"> <!-- Starts the spending category key. -->
+          <li><span><i class="category-dot housing"></i>Housing</span><strong>$1,210 <small>38%</small></strong></li> <!-- Gives the housing amount and share. -->
+          <li><span><i class="category-dot food"></i>Food</span><strong>$700 <small>22%</small></strong></li> <!-- Gives the food amount and share. -->
+          <li><span><i class="category-dot transport"></i>Transport</span><strong>$446 <small>14%</small></strong></li> <!-- Gives the transport amount and share. -->
+          <li><span><i class="category-dot lifestyle"></i>Lifestyle</span><strong>$509 <small>16%</small></strong></li> <!-- Gives the lifestyle amount and share. -->
+          <li><span><i class="category-dot other"></i>Other</span><strong>$319 <small>10%</small></strong></li> <!-- Gives the other-expenses amount and share. -->
+        </ul> <!-- Ends the category key. -->
+      </article> <!-- Ends the spending panel. -->
+    </section> <!-- Ends the cash-flow visualization section. -->
+
+    <!-- Savings goals show progress toward the visitor's targets. -->
+    <section class="goals-section" aria-labelledby="goals-title"> <!-- Creates the savings-goal summary region. -->
+      <div class="section-heading"><div><p class="eyebrow">On your way</p><h2 id="goals-title">Savings goals</h2></div><a class="text-link" href="#activity">View plan <span aria-hidden="true">→</span></a></div> <!-- Names the section and provides a related navigation link. -->
+      <div class="goal-grid"> <!-- Arranges individual goals in a responsive grid. -->
+        <article class="goal-card"><div class="goal-top"><span class="goal-icon emergency-icon" aria-hidden="true">✳</span><span class="goal-status">On track</span></div><h3>Emergency fund</h3><p class="goal-amount">$8,400 <span>of $12,000</span></p><div class="progress-track" role="progressbar" aria-label="Emergency fund progress" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill emergency-fill" style="--progress:70%"></span></div><p class="goal-foot"><span>70% complete</span><span>$3,600 to go</span></p></article> <!-- Summarizes current progress toward an emergency fund. -->
+        <article class="goal-card"><div class="goal-top"><span class="goal-icon travel-icon" aria-hidden="true">✈</span><span class="goal-status">Ahead of plan</span></div><h3>Japan trip</h3><p class="goal-amount">$2,150 <span>of $3,000</span></p><div class="progress-track" role="progressbar" aria-label="Japan trip savings progress" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill travel-fill" style="--progress:72%"></span></div><p class="goal-foot"><span>72% complete</span><span>$850 to go</span></p></article> <!-- Summarizes current progress toward the trip budget. -->
+        <article class="goal-card"><div class="goal-top"><span class="goal-icon home-icon" aria-hidden="true">⌂</span><span class="goal-status">Building</span></div><h3>Home deposit</h3><p class="goal-amount">$18,600 <span>of $40,000</span></p><div class="progress-track" role="progressbar" aria-label="Home deposit progress" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill home-fill" style="--progress:47%"></span></div><p class="goal-foot"><span>47% complete</span><span>$21,400 to go</span></p></article> <!-- Summarizes current progress toward a home deposit. -->
+      </div> <!-- Ends the savings goals grid. -->
+    </section> <!-- Ends the savings goals section. -->
+	
+<section class="panel activity-panel" id="transaction-editor">
+	<div class="panel-heading">
+		<div>
+			<p class="eyebrow">Manage your money</p>
+			<h2 id="editor-title">Add a transaction</h2>
+		</div>
+	</div>
+	<form id="transaction-form" class="finance-form">
+		<label for="description">Description</label>
+		<input id="description" type="text" placeholder="e.g. Groceries" required>
+			<label for="amount">Amount (AUD)</label>
+			<input id="amount" type="number" min="0.01" step="0.01" required>
+				<label for="type">Transaction type</label>
+				<select id="type">
+					<option value="income">Income</option>
+					<option value="expense">Expense</option>
+				</select>
+				<label for="category">Category</label>
+				<select id="category">
+					<option value="Salary">Salary</option>
+					<option value="Housing">Housing</option>
+					<option value="Food">Food</option>
+					<option value="Transport">Transport</option>
+					<option value="Bills">Bills</option>
+					<option value="Interest">Interest</option>
+					<option value="Lifestyle">Lifestyle</option>
+					<option value="Other">Other</option>
+				</select>
+				<label for="date">Transaction date</label>
+				<input id="date" type="date" required>
+				<div class="form-actions">
+					<button type="submit" id="submit-button">
+					Add transaction
+					</button>
+					<button type="button" id="cancel-edit" hidden> 
+					Cancel
+					</button>
+				</div>
+	</form>
+</section>
+	
+    <!-- Recent transactions make day-to-day activity easy to scan. -->
+    <section id="activity" class="panel activity-panel" aria-labelledby="activity-title"> <!-- Creates a labelled transaction-history panel. -->
+      <div class="panel-heading activity-heading"><div><p class="eyebrow">Recent activity</p><h2 id="activity-title">Transactions</h2></div><button class="filter-button" type="button" id="filterButton"><span aria-hidden="true">☷</span> Filter</button></div> <!-- Provides the table heading and its interactive filter button. -->
+      <div class="table-wrap"> <!-- Allows the table to scroll horizontally on narrow screens. -->
+        <table> <!-- Starts the structured transaction table. -->          
+<thead>
+  <tr>
+    <th scope="col">Transaction</th>
+    <th scope="col">Category</th>
+    <th scope="col">Date</th>
+    <th scope="col">Status</th>
+    <th scope="col" class="amount-heading">Amount</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead><!-- Labels each table column for screen readers. -->
+          <tbody id="transactionRows"> <!-- Gives JavaScript a target for transaction filtering. -->
+          </tbody> <!-- Ends the transaction records. -->
+        </table> <!-- Ends the transaction table. -->
+      </div> <!-- Ends the responsive table wrapper. -->
+      <div class="table-footer"><span>Showing 5 of 24 transactions</span><button type="button" class="text-link" id="showAllButton">Show all <span aria-hidden="true">→</span></button></div> <!-- Summarizes the visible rows and offers the filter toggle. -->
+    </section> <!-- Ends the transaction section. -->
+
+<!-- Gives visitors a quick way to return to the top after scrolling. -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
+
+    <footer class="dashboard-footer"> <!-- Starts the dashboard footer. -->
+      <span>Money Map <span aria-hidden="true">·</span> Sample data for demonstration</span> <!-- Clarifies that the displayed finances are examples. -->
+      <span>Last updated just now <span class="sync-dot" aria-hidden="true"></span></span> <!-- Shows a decorative sync indicator and update time. -->
+    </footer> <!-- Ends the dashboard footer. -->
+  </main> <!-- Ends the primary dashboard content. -->
+</body> <!-- Ends the visible page content. -->
+</html> <!-- Ends the HTML document. -->
